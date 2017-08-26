@@ -88,8 +88,8 @@ function createRock(x) {
      * Otherwise, if the rock hasn't reached the bottom of
      * the GAME, we want to move it again.
      */
-     var position = positionToInteger(rock.style.bottom);
-     rock.style.bottom = `${position += 2}px`;
+     var position = positionToInteger(rock.style.top);
+     rock.style.top = `${position += 2}px`;
      window.requestAnimationFrame(moveRock);
 
 
