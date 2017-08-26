@@ -73,11 +73,11 @@ function createRock(x) {
   function moveRock() {
     rock.style.top = `${top += 2}px`;
 
-     if (checkCollision()) {
+     if (checkCollision(rock)) {
        endGame();
      }
 
-     
+
 
      if (rock.style.top > GAME_HEIGHT) {
        rock.remove();
