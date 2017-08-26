@@ -100,7 +100,7 @@ function createRock(x) {
      if (rock.style.top > GAME_HEIGHT - 9) {
        rock.remove();
      }
-     
+
   }
 
   // We should kick of the animation of the rock around here
