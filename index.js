@@ -79,7 +79,7 @@ function createRock(x) {
 
 
 
-     if (top > GAME_HEIGHT) {
+     if (top >= GAME_HEIGHT) {
        rock.remove();
      }
      else {
