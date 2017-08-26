@@ -108,6 +108,12 @@ function createRock(x) {
  * Finally, alert "YOU LOSE!" to the player.
  */
 function endGame() {
+  gameInterval = null;
+  window.removeEventListener('keydown', moveDodger);
+  while (ROCKS != []) {
+    ROCKS.pop();
+  }
+  alert("YOU LOSE!");
 }
 
 function moveDodger(e) {
@@ -119,6 +125,17 @@ function moveDodger(e) {
    * we've declared for you above.)
    * And be sure to use the functions declared below!
    */
+   var left = positionToInteger(DODGER.style.left);
+   if (e.which === LEFT_ARROW) {
+     moveDodgerLeft();
+     e.preventDefault();
+     e.stopPropagation();
+   }
+   else if (e.which === RIGHT_ARROW) {
+     moveDodgerRight();
+     e.preventDefault();
+     e.stopPropagation();
+   }
 }
 
 function moveDodgerLeft() {
@@ -127,6 +144,12 @@ function moveDodgerLeft() {
    * This function should move DODGER to the left
    * (mabye 4 pixels?). Use window.requestAnimationFrame()!
    */
+   var left = positionToInteger(DODGER.style.left);
+   if (left > 0) {
+     DODGER.style.left = `${left -= 4}px`;
+     window.requestAnimationFrame(moveDodgerLeft);
+   }
+
 }
 
 function moveDodgerRight() {
@@ -135,6 +158,12 @@ function moveDodgerRight() {
    * This function should move DODGER to the right
    * (mabye 4 pixels?). Use window.requestAnimationFrame()!
    */
+   var left = positionToInteger(DODGER.style.left);
+
+   if (left < 360) {
+     DODGER.style.left = `${left += 4}px`;
+     window.requestAnimationFrame(moveDodgerRight);
+   }
 }
 
 /**
